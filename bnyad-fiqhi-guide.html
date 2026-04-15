@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بنیادنانی فیقهی - ڕێنمایی خوێندن</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E6B8;
+    --dark: #0D0D0D;
+    --dark-2: #141414;
+    --dark-3: #1C1C1C;
+    --dark-4: #242424;
+    --cream: #F7F0DC;
+    --cream-2: #EDE0C4;
+    --green: #2D6A4F;
+    --green-light: #52B788;
+    --red: #8B3A3A;
+    --blue: #1B4F72;
+    --text-main: #F0E6C8;
+    --text-muted: #A89060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text-main);
+    font-family: 'Scheherazade New', 'Amiri', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Ornamental background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(45,106,79,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(13,13,13,1) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Geometric pattern overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Cpath d='M30 0l5 10H25L30 0zM30 60l5-10H25l5 10zM0 30l10-5v10L0 30zM60 30l-10-5v10l10-5zM30 30l-10-5 5 10-5 10 10-5 10 5-5-10 5-10-10 5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+  }
+
+  .hero-ornament {
+    font-size: 2rem;
+    color: var(--gold);
+    opacity: 0.6;
+    letter-spacing: 20px;
+    display: block;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease;
+  }
+
+  .hero-title {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1.3;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    font-style: italic;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+
+  .hero-divider {
+    margin: 30px auto;
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation: fadeIn 1.5s ease 0.6s both;
+  }
+
+  .hero-goal {
+    background: linear-gradient(135deg, rgba(45,106,79,0.2), rgba(82,183,136,0.1));
+    border: 1px solid rgba(82,183,136,0.3);
+    border-radius: 16px;
+    padding: 20px 30px;
+    margin: 0 auto;
+    max-width: 500px;
+    font-size: 1.2rem;
+    color: var(--green-light);
+    animation: fadeUp 1s ease 0.6s both;
+  }
+
+  .hero-goal span {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* ===== NAV TABS ===== */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0 20px;
+    animation: fadeIn 1s ease 0.8s both;
+  }
+
+  .tab-btn {
+    background: var(--dark-3);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--text-muted);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tab-btn:hover { 
+    border-color: var(--gold); 
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.05));
+    border-color: var(--gold);
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ===== SECTION ===== */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ===== ROADMAP ===== */
+  .roadmap-title {
+    text-align: center;
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+    padding-top: 10px;
+  }
+
+  .roadmap {
+    position: relative;
+    padding-right: 30px;
+  }
+
+  .roadmap::before {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold), var(--green), var(--gold));
+    opacity: 0.3;
+  }
+
+  .step {
+    position: relative;
+    margin-bottom: 28px;
+    animation: slideIn 0.5s ease both;
+  }
+
+  .step:nth-child(1) { animation-delay: 0.1s; }
+  .step:nth-child(2) { animation-delay: 0.2s; }
+  .step:nth-child(3) { animation-delay: 0.3s; }
+  .step:nth-child(4) { animation-delay: 0.4s; }
+  .step:nth-child(5) { animation-delay: 0.5s; }
+
+  .step-dot {
+    position: absolute;
+    right: -37px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--dark);
+    border: 2px solid var(--gold);
+    z-index: 1;
+  }
+
+  .step.priority .step-dot {
+    background: var(--gold);
+    box-shadow: 0 0 12px rgba(201,168,76,0.6);
+  }
+
+  .step-card {
+    background: var(--dark-3);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .step-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    transform: translateX(-4px);
+    box-shadow: 4px 0 20px rgba(201,168,76,0.1);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+
+  .step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: 'Amiri', serif;
+  }
+
+  .step.priority .step-num {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark);
+  }
+
+  .step:not(.priority) .step-num {
+    background: var(--dark-4);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .step-info { flex: 1; }
+
+  .step-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .step-name {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    color: var(--text-main);
+    line-height: 1.3;
+  }
+
+  .step.priority .step-name { color: var(--gold-light); }
+
+  .step-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px 16px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .badge-videos { background: rgba(27,79,114,0.3); color: #7FB3D3; border: 1px solid rgba(127,179,211,0.2); }
+  .badge-podcast { background: rgba(139,58,58,0.3); color: #E8A87C; border: 1px solid rgba(232,168,124,0.2); }
+  .badge-priority { background: rgba(201,168,76,0.2); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .badge-done { background: rgba(45,106,79,0.3); color: var(--green-light); border: 1px solid rgba(82,183,136,0.2); }
+
+  .step-expand {
+    padding: 0 20px 18px;
+    color: #A0A0A0;
+    font-size: 1rem;
+    line-height: 1.7;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 4px;
+    padding-top: 14px;
+    display: none;
+  }
+
+  .step-expand.open { display: block; }
+
+  .step-expand ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .step-expand ul li {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .step-expand ul li::before {
+    content: '◈';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    margin-top: 4px;
+  }
+
+  /* ===== GHAZALI SECTION ===== */
+  .ghazali-hero {
+    background: linear-gradient(135deg, rgba(45,106,79,0.15), rgba(13,13,13,0.8));
+    border: 1px solid rgba(82,183,136,0.2);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .ghazali-name {
+    font-family: 'Amiri', serif;
+    font-size: 2.5rem;
+    color: var(--green-light);
+    margin-bottom: 8px;
+  }
+
+  .ghazali-title {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .ghazali-quote {
+    font-style: italic;
+    color: var(--cream-2);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    border-right: 3px solid var(--green-light);
+    padding-right: 16px;
+    text-align: right;
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .book-card {
+    background: var(--dark-3);
+    border: 1px solid rgba(82,183,136,0.15);
+    border-radius: 14px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--green-light);
+    opacity: 0.5;
+  }
+
+  .book-card:hover {
+    border-color: rgba(82,183,136,0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(45,106,79,0.2);
+  }
+
+  .book-order {
+    font-size: 0.75rem;
+    color: var(--green-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .book-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .book-subject {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .book-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(82,183,136,0.1);
+    border: 1px solid rgba(82,183,136,0.2);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.9rem;
+    color: var(--green-light);
+  }
+
+  /* ===== ALL PLAYLISTS ===== */
+  .category-section {
+    margin-bottom: 36px;
+  }
+
+  .category-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .category-icon { font-size: 1.2rem; }
+
+  .playlist-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .playlist-item {
+    background: var(--dark-3);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.25s ease;
+    cursor: default;
+  }
+
+  .playlist-item:hover {
+    border-color: rgba(201,168,76,0.25);
+    background: var(--dark-4);
+    transform: translateX(-3px);
+  }
+
+  .pl-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    font-family: 'Amiri', serif;
+  }
+
+  .pl-info { flex: 1; min-width: 0; }
+
+  .pl-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    line-height: 1.4;
+  }
+
+  .pl-type {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  .pl-count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ===== PROGRESS TRACKER ===== */
+  .tracker-intro {
+    background: var(--dark-3);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .tracker-intro h3 {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .progress-bar-wrap {
+    background: var(--dark-4);
+    border-radius: 50px;
+    height: 10px;
+    margin: 16px 0 8px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    border-radius: 50px;
+    background: linear-gradient(90deg, var(--gold), var(--green-light));
+    transition: width 0.5s ease;
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .tracker-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tracker-item {
+    background: var(--dark-3);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s;
+  }
+
+  .tracker-item.checked {
+    border-color: rgba(82,183,136,0.3);
+    background: rgba(45,106,79,0.1);
+  }
+
+  .tracker-check {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    color: transparent;
+    background: transparent;
+  }
+
+  .tracker-item.checked .tracker-check {
+    border-color: var(--green-light);
+    background: rgba(82,183,136,0.2);
+    color: var(--green-light);
+  }
+
+  .tracker-text { flex: 1; }
+
+  .tracker-name {
+    font-family: 'Amiri', serif;
+    font-size: 1.15rem;
+    color: var(--text-main);
+    line-height: 1.4;
+  }
+
+  .tracker-item.checked .tracker-name {
+    color: var(--green-light);
+  }
+
+  .tracker-desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    margin-top: 40px;
+  }
+
+  .footer-dua {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .hero-title { font-size: 2rem; }
+    .book-grid { grid-template-columns: 1fr; }
+    .tabs { gap: 6px; }
+    .tab-btn { padding: 8px 16px; font-size: 0.9rem; }
+  }
+
+  .channel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 12px auto 0;
+  }
+
+  .channel-badge strong { color: var(--gold); }
+
+  .tip-box {
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 1rem;
+    color: var(--cream-2);
+    line-height: 1.8;
+  }
+
+  .tip-box strong { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-ornament">✦ ✦ ✦</span>
+    <h1 class="hero-title">بنیادنانی فیقهی</h1>
+    <p class="hero-subtitle">ڕێنمایی خوێندنی کامل</p>
+    <div class="hero-divider"></div>
+    <div class="hero-goal">
+      🌙 ئامانج: <span>نزیکبوونەوە لە خودای گەورە</span> — لەڕێگەی زانستی دین، ئەخلاق، و فیقه
+    </div>
+    <div class="channel-badge">
+      کانێل: <strong>@bnyadnanfyqhy</strong> — 27K بەشداربوو · 1,200 ڤیدیۆ
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('roadmap')">🗺️ ڕێڕەوی خوێندن</button>
+    <button class="tab-btn" onclick="showTab('ghazali')">🌿 کورسەکانی غزالی</button>
+    <button class="tab-btn" onclick="showTab('all')">📚 هەموو پلەی لیستەکان</button>
+    <button class="tab-btn" onclick="showTab('tracker')">✅ ئەوەی خوێندمە</button>
+  </div>
+
+
+  <!-- ============================== -->
+  <!-- TAB 1: ROADMAP -->
+  <!-- ============================== -->
+  <div id="tab-roadmap" class="tab-content active">
+
+    <h2 class="roadmap-title">🗺️ ڕێڕەوی هەنگاو بە هەنگاو</h2>
+
+    <div class="tip-box">
+      💡 <strong>تێبینی گرنگ:</strong> ئەم ڕێڕەوە بۆ کەسێکە کە ئامانجی <strong>نزیکبوونەوە لە خودا</strong> هەیە، لەگەڵ فیقهی زانستی و زمانی عەرەبی. باشترین ڕێگا ئەوەیە کە بەم ڕیزەوە بچیتەوە — هەر مەرحەلەیەک بنیاد دادەنێت بۆ ئەوی دیکە.
+    </div>
+
+    <div class="roadmap">
+
+      <!-- STEP 1 -->
+      <div class="step priority" onclick="toggleExpand(this)">
+        <div class="step-dot"></div>
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-num">١</div>
+            <div class="step-info">
+              <div class="step-label">مەرحەلەی یەکەم · سەرەتا لێرەوە دەست پێ بکە</div>
+              <div class="step-name">بنیادنانی ئینسان — یەکەم</div>
+            </div>
+          </div>
+          <div class="step-meta">
+            <span class="badge badge-videos">📋 40 ڤیدیۆ</span>
+            <span class="badge badge-priority">⭐ پێشەوخستراو</span>
+          </div>
+          <div class="step-expand">
+            <strong style="color:var(--gold-light);">بۆچی سەرەتا؟</strong>
+            <p style="margin-top:8px;">پێش هەر شتێک، خۆت بناسە. کێیت؟ بۆ چی لێرەیت؟ ژیانت بۆ چییە؟ ئەم کورسە بۆ ئەو پرسیارانەی گرنگ وەڵام دەدات. بنیادی هەموو شتی دیکەیە.</p>
+            <ul>
+              <li>ناسینی خۆت و مەبەستی ژیان</li>
+              <li>پەیوەندی مرۆڤ لەگەڵ خودا</li>
+              <li>تەوحید لە ژیانی ڕۆژانە</li>
+              <li>بنیادی تەسەسوڵ و ئیبادەت</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step priority" onclick="toggleExpand(this)">
+        <div class="step-dot"></div>
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-num">٢</div>
+            <div class="step-info">
+              <div class="step-label">مەرحەلەی دووەم · دەرون پاک بکەرەوە</div>
+              <div class="step-name">أیُّها الوَلَد — غزالی</div>
+            </div>
+          </div>
+          <div class="step-meta">
+            <span class="badge badge-podcast">🎙️ 18 دەنگ</span>
+            <span class="badge badge-priority">⭐ گرنگ</span>
+          </div>
+          <div class="step-expand">
+            <strong style="color:var(--gold-light);">چییە؟</strong>
+            <p style="margin-top:8px;">غزالی بە شاگردەکەی نووسیوە: "ئەی کوڕم، زانست بەرز نییە، کردار بەرزە." کورت و بڕوادەرە، ڕاستەوخۆ دەگاتە دلت.</p>
+            <ul>
+              <li>چۆن ژیانت بۆ خودا بکەیت</li>
+              <li>خەتری زانستی بێ کردار</li>
+              <li>پێنج شتی ناپێویست لە ژیان</li>
+              <li>سیری دەرووی دەرەوەی دنیا</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step priority" onclick="toggleExpand(this)">
+        <div class="step-dot"></div>
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-num">٣</div>
+            <div class="step-info">
+              <div class="step-label">مەرحەلەی سێیەم · ڕێگای گەیشتن بۆ خودا</div>
+              <div class="step-name">مِنهاجُ العابدین — غزالی</div>
+            </div>
+          </div>
+          <div class="step-meta">
+            <span class="badge badge-videos">📋 66 ڤیدیۆ</span>
+            <span class="badge badge-priority">⭐ گەورەترین</span>
+          </div>
+          <div class="step-expand">
+            <strong style="color:var(--gold-light);">بۆچی گرنگترینە؟</strong>
+            <p style="margin-top:8px;">کتێبی نایاب. غزالی هەفت مەرحەلەی گەیشتن بۆ خودا ئاشکرا دەکات. هەرکەسێک کە دەیەوێت بگەیتە خودا، ئەم کتێبە رۆلی ڕێبەری ئەدا دەکات.</p>
+            <ul>
+              <li>مەرحەلەی یەکەم: زانست و ناسین</li>
+              <li>مەرحەلەی دووەم: تۆبە</li>
+              <li>مەرحەلەی سێیەم: بازدانەوە لە خاوەندەکار</li>
+              <li>مەرحەلەی چوارەم: مووانەتکاری</li>
+              <li>مەرحەلەی پێنجەم: ئومێد و ترس</li>
+              <li>مەرحەلەی شەشەم: شکر و قبول</li>
+              <li>مەرحەلەی حەوتەم: ئازادبوون لە دنیا</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step" onclick="toggleExpand(this)">
+        <div class="step-dot"></div>
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-num">٤</div>
+            <div class="step-info">
+              <div class="step-label">مەرحەلەی چوارەم · پاکی دەرووی</div>
+              <div class="step-name">مُداواة النُّفوس و تَهذیب الأخلاق</div>
+            </div>
+          </div>
+          <div class="step-meta">
+            <span class="badge badge-podcast">🎙️ 38 دەنگ</span>
+            <span class="badge badge-done">نوێکرایەوە</span>
+          </div>
+          <div class="step-expand">
+            <p>چۆن نەخۆشیەکانی دەرووی پزیشکی بکەیت. کینە، ئەوزار، خۆپیایش، ترس، دڵتەنگی — هەمووی لێرەدا ڕووناک دەکرێتەوە بە ڕیزی سیستماتیک.</p>
+            <ul>
+              <li>ناسینی نەخۆشیەکانی دەروون</li>
+              <li>دەرمانی هەر نەخۆشییەک</li>
+              <li>چۆن ئەخلاق گۆڕاندن</li>
+              <li>پەیوەندی دەروون لەگەڵ خودا</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="step" onclick="toggleExpand(this)">
+        <div class="step-dot"></div>
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-num">٥</div>
+            <div class="step-info">
+              <div class="step-label">مەرحەلەی پێنجەم · فیقهی بنیادی</div>
+              <div class="step-name">دەسپێکی فیقه — التأهیل الفقهی</div>
+            </div>
+          </div>
+          <div class="step-meta">
+            <span class="badge badge-videos">📋 18 + 55 ڤیدیۆ</span>
+          </div>
+          <div class="step-expand">
+            <p>پاش ئەوەی دەرووت ئامادە بوو، کاتە بۆ فیقه. سەرەتا "دەسپێکی فیقه" (18 ڤیدیۆ) دواتر "التأهیل الفقهی" (55 ڤیدیۆ). بە ئەمەیە دەزانیت چۆن ئیبادەت بکەیت بە شێوەی ڕاست.</p>
+            <ul>
+              <li>دەسپێکی فیقه: 18 ڤیدیۆ — سەرەتا</li>
+              <li>التأهیل الفقهی: 55 ڤیدیۆ — سیستماتیک</li>
+              <li>سفینة النجاة: 21 ڤیدیۆ — مکتمل</li>
+              <li>فتح القریب: 105 ڤیدیۆ — قۆناغی پێشکەوتوو</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="step" onclick="toggleExpand(this)">
+        <div class="step-dot"></div>
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-num">٦</div>
+            <div class="step-info">
+              <div class="step-label">مەرحەلەی شەشەم · ئادابی خوێندن</div>
+              <div class="step-name">تعلیمُ المُتعلِّم + تذکرة السامع</div>
+            </div>
+          </div>
+          <div class="step-meta">
+            <span class="badge badge-videos">📋 9 + 7 ڤیدیۆ</span>
+          </div>
+          <div class="step-expand">
+            <p>پێش ئەوەی ژوورتر بچیت، ئادابی خوێندن فێر بە. زانست بێ ئادەب بنیات نییە.</p>
+            <ul>
+              <li>نیەتی خوێندن پاک بکەرەوە</li>
+              <li>پەیوەندی شاگرد لەگەڵ مامۆستا</li>
+              <li>چۆن بیروارت بدەیت</li>
+              <li>بەرەکەتی زانست</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 7 -->
+      <div class="step" onclick="toggleExpand(this)">
+        <div class="step-dot"></div>
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-num">٧</div>
+            <div class="step-info">
+              <div class="step-label">مەرحەلەی حەوتەم · نحو و زمانی عەرەبی</div>
+              <div class="step-name">نهج الآجرومیة + هۆکارەکانی سەرکەوتن</div>
+            </div>
+          </div>
+          <div class="step-meta">
+            <span class="badge badge-videos">📋 37 + 15 ڤیدیۆ</span>
+          </div>
+          <div class="step-expand">
+            <p>بۆ تێگەیشتنی باشتر لە قرئان و کتێبە کلاسیکەکان، زمانی عەرەبی پێویستە.</p>
+            <ul>
+              <li>نهج الآجرومیة: بنیادی گرامەر</li>
+              <li>هۆکارەکانی سەرکەوتن لە زیان: 15 ڤیدیۆ</li>
+              <li>کۆرسی زمانی عەرەبی بەشیعر: دیوانی شافیعی</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 8 -->
+      <div class="step" onclick="toggleExpand(this)">
+        <div class="step-dot"></div>
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-num">٨</div>
+            <div class="step-info">
+              <div class="step-label">مەرحەلەی هەشتەم · پەیوەستی بکە</div>
+              <div class="step-name">النصائح الدینیة + لقطة الکبد</div>
+            </div>
+          </div>
+          <div class="step-meta">
+            <span class="badge badge-videos">📋 27 + 9 ڤیدیۆ</span>
+          </div>
+          <div class="step-expand">
+            <p>کاتێک زانستت هێنا، کاتە بۆ ئەوەی پەیوەستی بکەیت بە ژیانی ڕۆژانە. ئەم کورسانە یارمەتیت دەدەن زانستت بگوێزرێتەوە بۆ عەمەل.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /roadmap -->
+  </div>
+
+
+  <!-- ============================== -->
+  <!-- TAB 2: GHAZALI -->
+  <!-- ============================== -->
+  <div id="tab-ghazali" class="tab-content">
+
+    <div class="ghazali-hero">
+      <div class="ghazali-name">ئیمام أبو حامد الغَزالي</div>
+      <div class="ghazali-title">حُجَّة الإسلام · ٤٥٠ — ٥٠٥ هـ</div>
+      <div class="ghazali-quote">
+        "زانست ئەوە نییە کە زۆرت ئەزبەر کردبێت،<br>
+        زانست ئەوەیە کە زیاتر لە خودا ترسیت کردبێت."
+      </div>
+    </div>
+
+    <div class="tip-box">
+      🌿 کانێلی <strong>بنیادنانی فیقهی</strong> کورسی تایبەتی زۆری سەبارەت بە غزالی هەیە. ئەمە هەموویانی لیست کراون بە ڕیزی خوێندنی پێشنیاز کراو.
+    </div>
+
+    <div class="book-grid">
+
+      <div class="book-card" style="animation-delay:0.1s">
+        <div class="book-order">📖 ١ · سەرەتا لێرەوە</div>
+        <div class="book-title">أیُّها الوَلَد</div>
+        <div class="book-subject">نامەی غزالی بۆ شاگردەکەی — چۆن بۆ خودا بژیی</div>
+        <span class="book-count">🎙️ 18 دەنگ — Podcast</span>
+      </div>
+
+      <div class="book-card" style="animation-delay:0.2s">
+        <div class="book-order">📖 ٢ · گەورەترین</div>
+        <div class="book-title">مِنهاجُ العابدین</div>
+        <div class="book-subject">هەفت مەرحەلەی ڕێگای گەیشتن بۆ خودای گەورە</div>
+        <span class="book-count">📋 66 ڤیدیۆ</span>
+      </div>
+
+      <div class="book-card" style="animation-delay:0.3s">
+        <div class="book-order">📖 ٣ · تەزکیە</div>
+        <div class="book-title">کِتابُ أسرار الصوم</div>
+        <div class="book-subject">لە إحیاء علوم الدین — سیری ژوورەوەی ڕۆژوو</div>
+        <span class="book-count">📋 6 ڤیدیۆ</span>
+      </div>
+
+      <div class="book-card" style="animation-delay:0.4s">
+        <div class="book-order">📖 ٤ · فیقه</div>
+        <div class="book-title">آدابُ سلوکِ المُرید</div>
+        <div class="book-subject">ڕێگای کەسێک کە دەیەوێت بە ڕاستی بگەیتە خودا</div>
+        <span class="book-count">🎙️ 10 دەنگ — Podcast</span>
+      </div>
+
+    </div>
+
+    <div style="margin-top:30px;">
+      <div class="category-title"><span class="category-icon">💎</span> چۆن کورسەکانی غزالی بخوێنیتەوە</div>
+      <div class="tip-box" style="margin-top:12px;">
+        <strong>ڕیزی پێشنیاز:</strong><br><br>
+        ١. سەرەتا <strong>أیُّها الوَلَد</strong> (18 دەنگ) — کورت و بڕوادەرە<br>
+        ٢. دواتر <strong>مِنهاجُ العابدین</strong> (66 ڤیدیۆ) — گەورەترینە<br>
+        ٣. پاشان <strong>آدابُ سلوکِ المُرید</strong> (10 دەنگ) — کارپراکتیکی<br>
+        ٤. لە کۆتایی <strong>کِتابُ أسرار الصوم</strong> (6 ڤیدیۆ) — قۆناغی ژووری<br><br>
+        💡 <strong>تێبینی:</strong> غزالی خۆی دەڵێت: "ئەگەر تەنها یەک کتێبم بخوێنیتەوە، مِنهاجُ العابدین بخوێنیتەوە."
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================== -->
+  <!-- TAB 3: ALL PLAYLISTS -->
+  <!-- ============================== -->
+  <div id="tab-all" class="tab-content">
+
+    <!-- FIQH -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">🕌</span> فیقهی شافیعی</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">دەسپێکی فیقه — چوونە ژووردەوه</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 18</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">التأهیل الفقهی — فروع و قواعد</div><div class="pl-type">Playlist · مستمر</div></div><div class="pl-count">📋 55</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">نیلُ الرَّجاء — شرح سفینة النجاء</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 46</div></div>
+        <div class="playlist-item"><div class="pl-num">٤</div><div class="pl-info"><div class="pl-title">المُقدَّمة الحَضرَمیة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 49</div></div>
+        <div class="playlist-item"><div class="pl-num">٥</div><div class="pl-info"><div class="pl-title">فَتخُ القَریب المُجیب</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 105</div></div>
+        <div class="playlist-item"><div class="pl-num">٦</div><div class="pl-info"><div class="pl-title">سفینةُ النَّجاة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 21</div></div>
+        <div class="playlist-item"><div class="pl-num">٧</div><div class="pl-info"><div class="pl-title">مەوسووعەی فیقهی شافیعی (تهارة)</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 190</div></div>
+        <div class="playlist-item"><div class="pl-num">٨</div><div class="pl-info"><div class="pl-title">المُختَصَرُ اللَّطیف — Podcast</div><div class="pl-type">Podcast</div></div><div class="pl-count">🎙️ 47</div></div>
+        <div class="playlist-item"><div class="pl-num">٩</div><div class="pl-info"><div class="pl-title">البُدور الطالعة بشرح الرسالة الجامعة</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 18</div></div>
+        <div class="playlist-item"><div class="pl-num">١٠</div><div class="pl-info"><div class="pl-title">آلرسالة الجامعة و التذکرة النافعة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 30+</div></div>
+        <div class="playlist-item"><div class="pl-num">١١</div><div class="pl-info"><div class="pl-title">فيقهى ئافرەتان</div><div class="pl-type">Playlist · مستمر</div></div><div class="pl-count">📋 —</div></div>
+        <div class="playlist-item"><div class="pl-num">١٢</div><div class="pl-info"><div class="pl-title">الإبانة والإفاضة (فیقهی حیض)</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 12</div></div>
+        <div class="playlist-item"><div class="pl-num">١٣</div><div class="pl-info"><div class="pl-title">فِقهُ الصِّیام — ئەحکامەکانی ڕۆژوو</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 25</div></div>
+        <div class="playlist-item"><div class="pl-num">١٤</div><div class="pl-info"><div class="pl-title">الحِکَم الشافعیة</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 4</div></div>
+        <div class="playlist-item"><div class="pl-num">١٥</div><div class="pl-info"><div class="pl-title">الفوائد المدنیة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 4</div></div>
+        <div class="playlist-item"><div class="pl-num">١٦</div><div class="pl-info"><div class="pl-title">دەسپێکی فیقه — 18 ڤیدیۆ (نسخه)</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 18</div></div>
+      </div>
+    </div>
+
+    <!-- QAWAID -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">⚖️</span> قواعد فقهیة</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">الدُّرَّة القَدیمیة في القواعد الفقهیة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 14</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">المُسکة الکوثریة في القواعد الفقهیة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 8</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">الدَّلالة الجلیة في رموز الشافعیة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 4</div></div>
+      </div>
+    </div>
+
+    <!-- GHAZALI -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">🌿</span> کورسەکانی غزالی</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">أیُّها الوَلَد</div><div class="pl-type">Podcast · مکتمل</div></div><div class="pl-count">🎙️ 18</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">مِنهاجُ العابدین الى جَنة رَبِّ العالمین</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 66</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">کِتابُ أسرار الصوم — إحیاء علوم الدین</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 6</div></div>
+        <div class="playlist-item"><div class="pl-num">٤</div><div class="pl-info"><div class="pl-title">آدابُ سلوکِ المُرید</div><div class="pl-type">Podcast</div></div><div class="pl-count">🎙️ 10</div></div>
+      </div>
+    </div>
+
+    <!-- NAFS -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">💎</span> تەزکیە و سلوک</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">مُداواة النُّفوس و تَهذیب الأخلاق</div><div class="pl-type">Podcast · نوێکرایەوە</div></div><div class="pl-count">🎙️ 38</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">المرونة النَّفسیة — Psychological Resilience</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 22</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">خولی قەڵغانەکانی دەرووون</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 20</div></div>
+        <div class="playlist-item"><div class="pl-num">٤</div><div class="pl-info"><div class="pl-title">النَّصائح الدِّینیةُ وَ الوَصَایا الایمانیة</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 27</div></div>
+        <div class="playlist-item"><div class="pl-num">٥</div><div class="pl-info"><div class="pl-title">رسالةُ الأخلاق</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 2</div></div>
+      </div>
+    </div>
+
+    <!-- ADAB -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">📜</span> ئادابی خوێندن و ئینسان</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">بنیادنانی ئینسان — یەکەم</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 40</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">بنیادنانی ئینسان — دووەم</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 30</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">تعلیمُ المُتعلِّم — ئادابی تالبی عیلم</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 9</div></div>
+        <div class="playlist-item"><div class="pl-num">٤</div><div class="pl-info"><div class="pl-title">تذکرة السامع و المتعلم — ئیبن جماعة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 7</div></div>
+        <div class="playlist-item"><div class="pl-num">٥</div><div class="pl-info"><div class="pl-title">لَقطةُ الکَبِد إلى نَصیحة الوَلد</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 9</div></div>
+        <div class="playlist-item"><div class="pl-num">٦</div><div class="pl-info"><div class="pl-title">تائیةُ الالبیری في الآداب</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 5</div></div>
+        <div class="playlist-item"><div class="pl-num">٧</div><div class="pl-info"><div class="pl-title">باخچەی عیلم</div><div class="pl-type">Podcast · مکتمل</div></div><div class="pl-count">🎙️ 19</div></div>
+        <div class="playlist-item"><div class="pl-num">٨</div><div class="pl-info"><div class="pl-title">مسلکیاتُ العلم</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 8</div></div>
+        <div class="playlist-item"><div class="pl-num">٩</div><div class="pl-info"><div class="pl-title">قِیمةُ الزَّمن عند الغُلماء</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 2</div></div>
+      </div>
+    </div>
+
+    <!-- NAHW -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">✍️</span> زمانی عەرەبی و نحو</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">بناغەی زانستی نحو — نهج الآجرومیة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 37</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">نَظْم الآجرومیة — مولانا الشنقیطی</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 14</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">الظُّرفة في النَّحو</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 22</div></div>
+        <div class="playlist-item"><div class="pl-num">٤</div><div class="pl-info"><div class="pl-title">هۆکارەکانی سەرکەوتن لە زیان</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 15</div></div>
+        <div class="playlist-item"><div class="pl-num">٥</div><div class="pl-info"><div class="pl-title">زنجیرەی بەرهەمداری کارامەیی زیان</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 16</div></div>
+        <div class="playlist-item"><div class="pl-num">٦</div><div class="pl-info"><div class="pl-title">کۆرسی فیربوونی عەرەبی — دیوانی شافیعی</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 9</div></div>
+        <div class="playlist-item"><div class="pl-num">٧</div><div class="pl-info"><div class="pl-title">کورتە ئامۆژگاریبەکان لە علم و زیان</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 —</div></div>
+      </div>
+    </div>
+
+    <!-- HADITH -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">📖</span> علوم الحدیث</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">نَظْم البیقونیة — ئامادەی علوم الحدیث</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 32</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">أُسُس النَّظَر في علم الأثر</div><div class="pl-type">Podcast</div></div><div class="pl-count">🎙️ 13</div></div>
+      </div>
+    </div>
+
+    <!-- SIRA -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">🌙</span> سیرە و تراجم</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">النَّفَحاتُ العطریة من سیرة خیر البَریة</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 9</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">رۆحی عەبقەریەت — ئیتیرامانێک</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 9</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">قِلادةُ الأَدیب</div><div class="pl-type">Podcast</div></div><div class="pl-count">🎙️ 17</div></div>
+      </div>
+    </div>
+
+    <!-- POETRY -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">🖊️</span> شیعر و متون کلاسیک</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">القَصیدةُ المُؤَنِّسة — شیعری کلاسیک</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 13</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">لامیة ابن الوَردي</div><div class="pl-type">Podcast</div></div><div class="pl-count">🎙️ 11</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">الفراقیة لابن زُریق</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 4</div></div>
+        <div class="playlist-item"><div class="pl-num">٤</div><div class="pl-info"><div class="pl-title">القصیدة الینیمة — ابن زریق البغدادي</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 4</div></div>
+        <div class="playlist-item"><div class="pl-num">٥</div><div class="pl-info"><div class="pl-title">نَظْم مَحارم اللِّسان</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 11</div></div>
+        <div class="playlist-item"><div class="pl-num">٦</div><div class="pl-info"><div class="pl-title">نَظْم البُرور — مامەڵە لەگەڵ دایک و باوک</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 7</div></div>
+      </div>
+    </div>
+
+    <!-- OTHER -->
+    <div class="category-section">
+      <div class="category-title"><span class="category-icon">🔖</span> دیکە</div>
+      <div class="playlist-list">
+        <div class="playlist-item"><div class="pl-num">١</div><div class="pl-info"><div class="pl-title">خەربەشاتِ فِکریة</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 29</div></div>
+        <div class="playlist-item"><div class="pl-num">٢</div><div class="pl-info"><div class="pl-title">فیترەتی ژن بوون و پیاوبوون</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 4</div></div>
+        <div class="playlist-item"><div class="pl-num">٣</div><div class="pl-info"><div class="pl-title">گرنگترین کتێبەکانی مەزهەبی شافیعی</div><div class="pl-type">Playlist</div></div><div class="pl-count">📋 4</div></div>
+        <div class="playlist-item"><div class="pl-num">٤</div><div class="pl-info"><div class="pl-title">مەنهەجیەت لە تەلەبی عیلم</div><div class="pl-type">Playlist · مکتمل</div></div><div class="pl-count">📋 —</div></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================== -->
+  <!-- TAB 4: TRACKER -->
+  <!-- ============================== -->
+  <div id="tab-tracker" class="tab-content">
+
+    <div class="tracker-intro">
+      <h3>📊 ئەوەی خوێندمە</h3>
+      <p style="color:#888; font-size:1rem;">کلیک بکە سەر هەر مەرحەلەیەک کە تەواوت کرد</p>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progressBar" style="width:0%"></div>
+      </div>
+      <div class="progress-text" id="progressText">٠ لە ٨ مەرحەلە تەواو کراون</div>
+    </div>
+
+    <div class="tracker-steps" id="trackerList">
+
+      <div class="tracker-item" onclick="toggleCheck(this)">
+        <div class="tracker-check">✓</div>
+        <div class="tracker-text">
+          <div class="tracker-name">بنیادنانی ئینسان — یەکەم</div>
+          <div class="tracker-desc">40 ڤیدیۆ · مەرحەلەی یەکەم</div>
+        </div>
+      </div>
+
+      <div class="tracker-item" onclick="toggleCheck(this)">
+        <div class="tracker-check">✓</div>
+        <div class="tracker-text">
+          <div class="tracker-name">أیُّها الوَلَد — غزالی</div>
+          <div class="tracker-desc">18 دەنگ · مەرحەلەی دووەم</div>
+        </div>
+      </div>
+
+      <div class="tracker-item" onclick="toggleCheck(this)">
+        <div class="tracker-check">✓</div>
+        <div class="tracker-text">
+          <div class="tracker-name">مِنهاجُ العابدین — غزالی</div>
+          <div class="tracker-desc">66 ڤیدیۆ · مەرحەلەی سێیەم</div>
+        </div>
+      </div>
+
+      <div class="tracker-item" onclick="toggleCheck(this)">
+        <div class="tracker-check">✓</div>
+        <div class="tracker-text">
+          <div class="tracker-name">مُداواة النُّفوس</div>
+          <div class="tracker-desc">38 دەنگ · مەرحەلەی چوارەم</div>
+        </div>
+      </div>
+
+      <div class="tracker-item" onclick="toggleCheck(this)">
+        <div class="tracker-check">✓</div>
+        <div class="tracker-text">
+          <div class="tracker-name">دەسپێکی فیقه + التأهیل الفقهی</div>
+          <div class="tracker-desc">18 + 55 ڤیدیۆ · مەرحەلەی پێنجەم</div>
+        </div>
+      </div>
+
+      <div class="tracker-item" onclick="toggleCheck(this)">
+        <div class="tracker-check">✓</div>
+        <div class="tracker-text">
+          <div class="tracker-name">تعلیمُ المُتعلِّم</div>
+          <div class="tracker-desc">9 ڤیدیۆ · مەرحەلەی شەشەم</div>
+        </div>
+      </div>
+
+      <div class="tracker-item" onclick="toggleCheck(this)">
+        <div class="tracker-check">✓</div>
+        <div class="tracker-text">
+          <div class="tracker-name">نهج الآجرومیة</div>
+          <div class="tracker-desc">37 ڤیدیۆ · مەرحەلەی حەوتەم</div>
+        </div>
+      </div>
+
+      <div class="tracker-item" onclick="toggleCheck(this)">
+        <div class="tracker-check">✓</div>
+        <div class="tracker-text">
+          <div class="tracker-name">النصائح الدینیة + لقطة الکبد</div>
+          <div class="tracker-desc">27 + 9 ڤیدیۆ · مەرحەلەی هەشتەم</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-dua">اللَّهُمَّ عَلِّمْنَا مَا يَنْفَعُنَا</div>
+    <div>خودایە ئەو زانستمان فێر بکە کە سوودی هەیە</div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function toggleExpand(stepEl) {
+    const expand = stepEl.querySelector('.step-expand');
+    expand.classList.toggle('open');
+  }
+
+  function toggleCheck(item) {
+    item.classList.toggle('checked');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const items = document.querySelectorAll('.tracker-item');
+    const checked = document.querySelectorAll('.tracker-item.checked').length;
+    const total = items.length;
+    const pct = Math.round((checked / total) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressText').textContent = checked + ' لە ' + total + ' مەرحەلە تەواو کراون';
+  }
+</script>
+
+</body>
+</html>
